@@ -32,8 +32,7 @@ app_ui <- function(request) {
 #'
 #' @import shiny
 #' @importFrom golem add_resource_path activate_js favicon bundle_resources
-#' @importFrom shinydashboard dashboardBody dashboardHeader dashboardPage dashboardSidebar
-#' @importFrom shinydashboardPlus box
+#' @importFrom shinydashboard dashboardBody dashboardHeader dashboardPage dashboardSidebar box
 #' @noRd
 golem_add_external_resources <- function() {
   add_resource_path('www', app_sys('app/www'))

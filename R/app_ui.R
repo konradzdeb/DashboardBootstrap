@@ -32,12 +32,20 @@ app_ui <- function(request) {
 #'
 #' @import shiny
 #' @importFrom golem add_resource_path activate_js favicon bundle_resources
-#' @importFrom shinydashboard dashboardBody dashboardHeader dashboardPage dashboardSidebar box
+#' @importFrom shinydashboard box dashboardBody dashboardHeader dashboardPage dashboardSidebar box
+#' @importFrom bootstraplib bs_theme_new bs_theme_base_colors bootstrap bs_theme_add_variables bootstrap_sass
 #' @noRd
 golem_add_external_resources <- function() {
   add_resource_path('www', app_sys('app/www'))
 
+  # Set new theme
+  bs_theme_new(version = "4+3", bootswatch = NULL)
+  bs_theme_base_colors(bg = "salmon", fg = "white")
+  bs_theme_add_variables(primary = "green")
+  bootstrap_sass(".skin-blue, .left-side, .main-sidebar { background-color: #32CD32; }")
+
   tags$head(favicon(),
+            bootstrap(),
             bundle_resources(path = app_sys('app/www'),
                              app_title = 'DashboardBootstrap'))
             # Add here other external resources

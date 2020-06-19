@@ -2,6 +2,11 @@
 
 export(run_app)
 import(shiny)
+importFrom(bootstraplib,bootstrap)
+importFrom(bootstraplib,bootstrap_sass)
+importFrom(bootstraplib,bs_theme_add_variables)
+importFrom(bootstraplib,bs_theme_base_colors)
+importFrom(bootstraplib,bs_theme_new)
 importFrom(config,get)
 importFrom(golem,activate_js)
 importFrom(golem,add_resource_path)

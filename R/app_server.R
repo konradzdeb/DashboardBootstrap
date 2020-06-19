@@ -3,6 +3,8 @@
 #' @param input,output,session Internal parameters for {shiny}.
 #'     DO NOT REMOVE.
 #' @import shiny
+#' @importFrom graphics hist
+#' @importFrom stats rnorm
 #' @noRd
 app_server <- function( input, output, session ) {
 

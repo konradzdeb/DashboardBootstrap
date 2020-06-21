@@ -8,8 +8,11 @@ app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
+    # Set new theme
+
     # List the first level UI elements here
     dashboardPage(
+      bootstrap(),
       dashboardHeader(title = "Basic dashboard"),
       dashboardSidebar(),
       dashboardBody(# Boxes need to be put in a row (or column)
@@ -38,14 +41,13 @@ app_ui <- function(request) {
 golem_add_external_resources <- function() {
   add_resource_path('www', app_sys('app/www'))
 
-  # Set new theme
-  bs_theme_new(version = "4+3", bootswatch = NULL)
-  bs_theme_base_colors(bg = "salmon", fg = "white")
-  bs_theme_add_variables(primary = "green")
-  bootstrap_sass(".skin-blue, .left-side, .main-sidebar { background-color: #32CD32; }")
+
 
   tags$head(favicon(),
-            bootstrap(),
+            bs_theme_new(version = "4+3", bootswatch = NULL),
+            bs_theme_base_colors(bg = "salmon", fg = "white"),
+            bs_theme_add_variables(primary = "green"),
+            bootstrap_sass(".skin-blue, .left-side, .main-sidebar { background-color: #32CD32; }"),
             bundle_resources(path = app_sys('app/www'),
                              app_title = 'DashboardBootstrap'))
             # Add here other external resources
